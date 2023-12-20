@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useMemo} from "react";
 import {TaskFilters} from "features/filterTasks";
 import {AddTaskForm} from "features/addTask";
-import {TaskFiltersType, TaskType} from "shared/types/task";
+import {TaskFiltersType, TaskType} from "entities/task/model/config/task";
 
 interface ITasksColumnProps {
 	tasksColumnName: string

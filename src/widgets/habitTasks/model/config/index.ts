@@ -1,4 +1,5 @@
-import {TaskFiltersType, TaskType} from "shared/types/task";
+import {TaskFiltersType, TaskType} from "entities/task/model/config/task";
+import {ModalsStateType} from "../../../../shared/model/config";
 
 export type HabitTaskType =
     Required<Pick<TaskType, 'titleText' | 'isBadTask' | 'id' | 'isSuccessTask' | 'count' | 'supText' | 'diff' | 'category'>>
@@ -8,6 +9,10 @@ export enum HabitCategoryEnum {
     ALL = 'ALL',
     WEAK = 'WEAK',
     STRONG = 'STRONG'
+}
+
+export enum HabitModalsName {
+    UPDATE_HABIT_TASK = 'UPDATE_HABIT_TASK',
 }
 
 export const habitFilters: TaskFiltersType = [
@@ -28,5 +33,6 @@ export const habitFilters: TaskFiltersType = [
 export interface habitState {
     habitTasks: HabitTaskType[];
     currentFilter: string,
+    modals: ModalsStateType<HabitModalsName, HabitTaskType>[];
 }
 

@@ -1,4 +1,4 @@
-import {TaskType} from "../../../shared/types/task";
+import {TaskType} from "../model/config/task";
 
 export function filterTask<T extends TaskType>(tasks: T[], filter: string): T[] {
     return tasks.filter((task) => filter === 'ALL' ? task :

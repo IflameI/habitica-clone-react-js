@@ -1,4 +1,4 @@
-import {TaskFiltersType, TaskType} from "../../../../shared/types/task";
+import {TaskFiltersType, TaskType} from "../../../../entities/task/model/config/task";
 
 export const DEFAULT_DAILY_TASK_EXP = 10;
 export const DEFAULT_DAILY_TASK_HEALTH = 10;

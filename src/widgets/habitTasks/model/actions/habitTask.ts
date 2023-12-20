@@ -1,6 +1,6 @@
 import {createAction} from "@reduxjs/toolkit";
-import {actionWithPayloadType} from "shared/types/actionWithPayload";
-import {HabitTaskType} from "../config";
+import {actionWithPayloadType} from "shared/model/config/actionWithPayload";
+import {HabitModalsName, HabitTaskType} from "../config";
 
 
 export const addHabitTask = createAction('[TASK/HABIT] ADD_HABIT_TASK',
@@ -24,3 +24,9 @@ export const deleteHabitTask = createAction('[TASK/HABIT] DELETE_HABIT',
 
 export const changeCurrentHabitFilter = createAction('[FILTERS/HABIT] CHANGE_FILTER',
     actionWithPayloadType<{ newFilter: string }>());
+
+export const openHabitModal = createAction('[MODAL/HABIT] OPEN_HABIT_MODAL',
+    actionWithPayloadType<{ modalName: HabitModalsName, data: HabitTaskType }>());
+
+export const closeHabitModal = createAction('[MODAL/HABIT] CLOSE_HABIT_MODAL',
+    actionWithPayloadType<{ modalName: HabitModalsName }>());

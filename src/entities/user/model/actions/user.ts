@@ -1,5 +1,5 @@
 import {createAction} from "@reduxjs/toolkit";
-import {actionWithPayloadType} from "shared/types/actionWithPayload";
+import {actionWithPayloadType} from "shared/model/config/actionWithPayload";
 import {UserThingType} from "../config/config";
 
 

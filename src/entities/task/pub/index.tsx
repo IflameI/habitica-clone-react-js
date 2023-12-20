@@ -1,13 +1,15 @@
 import React from "react";
 import classNames from "classnames";
 import {CounterIcon} from "../../../assets/icons/CounterIcon";
-import {TaskType} from "../../../shared/types/task";
+import {TaskType} from "../model/config/task";
 import {CheckIcon} from "../../../assets/icons/CheckIcon";
+import {ThreeDots} from "../../../assets/icons/ThreeDots";
 
 interface ITask extends Omit<TaskType, 'category' | 'diff' | 'id'> {
 	isOneTimeTask?: boolean;
 	onSuccessButtonClick: () => void;
 	onFailButtonClick?: () => void;
+	onMoreActionButtonClick?: () => void;
 }
 
 export const Task: React.FC<ITask> = ({
@@ -19,7 +21,8 @@ export const Task: React.FC<ITask> = ({
 	                                      isOneTimeTask,
 	                                      isCompletedTask,
 	                                      onSuccessButtonClick,
-	                                      onFailButtonClick
+	                                      onFailButtonClick,
+	                                      onMoreActionButtonClick
                                       }) => {
 	return (
 		<div className='item-tasks__wrapper'>
@@ -48,7 +51,9 @@ export const Task: React.FC<ITask> = ({
 				<div className='item-tasks__middle'>
 					<div className='item-tasks__text-wrapper'>
 						<p className='item-tasks__text'>{titleText}</p>
-						{/*<div onClick={toggle}><ThreeDots/></div>*/}
+						{onMoreActionButtonClick && (
+							<div onClick={onMoreActionButtonClick}><ThreeDots/></div>
+						)}
 					</div>
 					<p className='item-tasks__suptext'>{supText}</p>
 					{Number(count) || count === 0 ? (

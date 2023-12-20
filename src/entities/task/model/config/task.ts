@@ -18,5 +18,4 @@ export type TaskType = {
     remainDay?: number;
     isBadTask?: boolean;
     isSuccessTask?: boolean;
-
 }

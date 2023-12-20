@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Tabs from "../../../common/ui/Tabs";
-import {TaskFiltersType} from "../../../shared/types/task";
+import {TaskFiltersType} from "../../../entities/task/model/config/task";
 
 interface ITaskFilters {
 	taskFilters: { filters: TaskFiltersType, handler: (newFilter: string) => void },

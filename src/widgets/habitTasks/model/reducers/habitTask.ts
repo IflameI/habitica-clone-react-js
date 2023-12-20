@@ -1,4 +1,4 @@
-import {HabitCategoryEnum, habitState} from "../config";
+import {HabitCategoryEnum, HabitModalsName, habitState} from "../config";
 import {createReducer} from "@reduxjs/toolkit";
 import {HabitTaskActions} from "../actions";
 
@@ -25,12 +25,18 @@ const initialState: habitState = {
             diff: 1,
         },
     ],
-    currentFilter: HabitCategoryEnum.WEAK
+    currentFilter: HabitCategoryEnum.WEAK,
+    modals: [
+        {
+            name: HabitModalsName.UPDATE_HABIT_TASK,
+            isOpen: false,
+            data: null
+        }
+    ]
 };
 
 
 export const habitTask = createReducer(initialState, (builder) => builder
-
     .addCase(HabitTaskActions.addHabitTask, (state, {payload: {newHabit}}) => ({
         ...state,
         habitTasks: [...state.habitTasks, newHabit],
@@ -79,5 +85,21 @@ export const habitTask = createReducer(initialState, (builder) => builder
     .addCase(HabitTaskActions.changeCurrentHabitFilter, (state, {payload: {newFilter}}) => ({
         ...state,
         currentFilter: newFilter
+    }))
+    .addCase(HabitTaskActions.openHabitModal, (state, {payload: {modalName, data}}) => ({
+        ...state,
+        modals: state.modals.map((modal) => modal.name === modalName ? {
+            ...modal,
+            isOpen: !modal.isOpen,
+            data
+        } : modal)
+    }))
+    .addCase(HabitTaskActions.closeHabitModal, (state, {payload: {modalName}}) => ({
+        ...state,
+        modals: state.modals.map((modal) => modal.name === modalName ? {
+            ...modal,
+            isOpen: !modal.isOpen,
+            data: null,
+        } : modal)
     }))
 );

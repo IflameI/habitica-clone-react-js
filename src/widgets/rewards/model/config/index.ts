@@ -1,4 +1,4 @@
-import {TaskFiltersType, TaskType} from "shared/types/task";
+import {TaskFiltersType, TaskType} from "entities/task/model/config/task";
 
 export const DEFAULT_REWARD_COST = 10
 
