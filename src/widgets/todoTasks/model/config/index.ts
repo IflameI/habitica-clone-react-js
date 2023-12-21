@@ -1,13 +1,21 @@
 import {TaskFiltersType, TaskType} from "../../../../entities/task/model/config/task";
+import {ModalsStateType} from "../../../../shared/model/config";
 
 
 export type ToDoTaskType =
-    Required<Pick<TaskType, 'titleText' | 'id' | 'supText' | 'diff' | 'category' | 'remainDay'>>
+    Required<Pick<TaskType, 'titleText' | 'id' | 'supText' | 'diff' | 'category' | 'remainDay' | 'finishUntilDate'>>
     & TaskType;
+
+
+export enum TodoModalsName {
+    UPDATE_TODO = 'UPDATE_TODO',
+}
+
 
 export interface toDoState {
     toDoTasks: ToDoTaskType[];
     currentFilter: string;
+    modals: ModalsStateType<TodoModalsName, ToDoTaskType>[];
 }
 
 export enum TodoCategoryEnum {

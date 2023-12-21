@@ -1,4 +1,4 @@
-import {TodoCategoryEnum, toDoState} from "../config";
+import {TodoCategoryEnum, TodoModalsName, toDoState} from "../config";
 import {createReducer} from "@reduxjs/toolkit";
 import {TodoTaskActions} from "../actions";
 
@@ -11,9 +11,17 @@ const initialState: toDoState = {
             supText: '',
             diff: 1,
             remainDay: 0,
+            finishUntilDate: null,
         },
     ],
     currentFilter: TodoCategoryEnum.ACTIVE,
+    modals: [
+        {
+            name: TodoModalsName.UPDATE_TODO,
+            isOpen: false,
+            data: null
+        }
+    ]
 };
 
 export const todoTask = createReducer(initialState, (builder) => builder
@@ -57,5 +65,21 @@ export const todoTask = createReducer(initialState, (builder) => builder
     .addCase(TodoTaskActions.changeCurrentTodoFilter, (state, {payload: {newFilter}}) => ({
         ...state,
         currentFilter: newFilter,
+    }))
+    .addCase(TodoTaskActions.openToDoModal, (state, {payload: {modalName, data}}) => ({
+        ...state,
+        modals: state.modals.map((modal) => modal.name === modalName ? {
+            ...modal,
+            isOpen: !modal.isOpen,
+            data
+        } : modal)
+    }))
+    .addCase(TodoTaskActions.closeToDoModal, (state, {payload: {modalName}}) => ({
+        ...state,
+        modals: state.modals.map((modal) => modal.name === modalName ? {
+            ...modal,
+            isOpen: !modal.isOpen,
+            data: null,
+        } : modal)
     }))
 );

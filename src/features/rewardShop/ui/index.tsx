@@ -1,7 +1,7 @@
 import React from 'react';
 import CoinIcon from "../../../assets/icons/CoinIcon";
 import {useNotification} from "../../../shared/hooks/useNotification";
-import {MessageOnGain} from "../../../common/ui/MessageOnGain";
+import {MessageOnGain} from "../../../shared/pub/NotificationMessage/MessageOnGain";
 import HealthIcon from "../../../assets/icons/MemberIcons/HealthIcon";
 import {useDispatch, useSelector} from "react-redux";
 import {UserSelectors} from "../../../entities/user/model/selectors";

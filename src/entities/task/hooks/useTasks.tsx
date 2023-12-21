@@ -2,8 +2,8 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {UserActions} from "../../user/model/actions";
 import {useNotification} from "../../../shared/hooks/useNotification";
-import {MessageOnGain} from "../../../common/ui/MessageOnGain";
-import {MessageOnLost} from "../../../common/ui/MessageOnLost";
+import {MessageOnGain} from "../../../shared/pub/NotificationMessage/MessageOnGain";
+import {MessageOnLost} from "../../../shared/pub/NotificationMessage/MessageOnLost";
 import HealthIcon from "../../../assets/icons/MemberIcons/HealthIcon";
 import StarIcon from "../../../assets/icons/StarIcon";
 import {UserSelectors} from "../../user/model/selectors";
@@ -42,7 +42,7 @@ export const useTasks = () => {
 			dispatch(UserActions.minusUserLevelPoint({level_point: levelPoint}))
 			showErrorNotification(<MessageOnLost thing={['опыт', 'опыта', 'опыта']} icon={<StarIcon/>} count={levelPoint}/>)
 		}
-		
+
 		if (currentHealthPoint - health >= 0) {
 			dispatch(UserActions.minusUserHp({hp: health}))
 			showErrorNotification(<MessageOnLost thing={['жизнь', 'жизни', 'жизней']} icon={<HealthIcon/>} count={health}/>)

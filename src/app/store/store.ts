@@ -1,28 +1,24 @@
 import {rootReducer} from './reducers';
 import {configureStore} from "@reduxjs/toolkit";
-//
-// const persistConfig = {
-//     key: 'root',
-//     storage,
-// };
-//
-// declare global {
-//     interface Window {
-//         __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-//     }
-// }
-//
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
-//
-// const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import storage from 'redux-persist/lib/storage'
+import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE,} from 'redux-persist'
 
-// const store = createStore(persistedReducer, composeEnhancer());
-//
-// const persistor = persistStore(store);
-// export { store, persistor };
+const persistConfig = {
+    key: 'root',
+    version: 1,
+    storage,
+}
 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-    reducer: rootReducer,
-    devTools: true,
-});
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
+})
+
+export let persistor = persistStore(store)

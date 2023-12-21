@@ -3,6 +3,8 @@ import {HabitTasks} from "widgets/habitTasks";
 import {DailyTasks} from "widgets/dailyTasks";
 import {TodoTasks} from "widgets/todoTasks";
 import {Rewards} from "widgets/rewards";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
 	return (
@@ -14,7 +16,7 @@ const Dashboard = () => {
 					<DailyTasks/>
 					<TodoTasks/>
 					<Rewards/>
-					{/*<ToastContainer/>*/}
+					<ToastContainer/>
 				</div>
 			</div>
 		</section>

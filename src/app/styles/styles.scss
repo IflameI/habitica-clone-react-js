@@ -1,0 +1,916 @@
+//<МИКСИНЫ>===============================================================================================
+@import '../../shared/styles/helpers/mixins';
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: 'Roboto';
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1880;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import '../../shared/styles/helpers/null';
+body {
+  color: #000;
+  font-size: 14px;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+  padding: 0 15px;
+}
+
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+@import 'src/app/styles/components/header';
+@import 'src/app/styles/components/inventory';
+
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+//====================================================================================================
+.user {
+  padding: 80px 0px 30px 70px;
+  background: #36205d;
+  color: #d5c8ff;
+  @media (max-width: 767px) {
+    padding: 80px 0px 30px 10px;
+  }
+
+  &__row {
+    @include flexbox();
+  }
+
+  &__column {
+    flex: 0 1 50%;
+
+    .user__text-wrapper {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
+  &__data {
+    @include flexbox();
+    align-items: center;
+  }
+
+  &__text {
+  }
+
+  &__icon {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    margin-right: 5px;
+  }
+
+  &__name {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  &__count {
+    margin-left: 5px;
+  }
+
+  &__title {
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  &__main-text {
+    margin-bottom: 5px;
+  }
+
+  &__text-wrapper {
+    text-align: center;
+    font-style: italic;
+    max-width: 400px;
+  }
+
+  &__button {
+    padding-top: 6px;
+  }
+}
+
+//====================================================================================================
+.btn {
+  display: inline-block;
+  height: 32px;
+  padding: 0px 25px;
+  background-color: #4f2a93;
+  border: 1px solid #925cf3;
+  @media (min-width: $md1+px) {
+    &:hover {
+      @include anim(0.3s, 0s);
+      background: #4f2a93ba;
+    }
+  }
+  position: relative;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
+  font-weight: 700;
+}
+
+//====================================================================================================
+
+.span-space {
+  padding: 0 5px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 100%;
+  border-radius: 3px;
+  background: #271b3d;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar-fill {
+  display: block;
+  height: 12px;
+  background-color: #f74e52;
+  border-radius: 3px;
+  transition: width 500ms ease-in-out;
+  max-width: 100%;
+}
+
+.progress-bar-blue {
+  background: #2477ff;
+}
+
+.progress-bar-yellow {
+  background: #ffbe5d;
+}
+
+//====================================================================================================
+
+.tasks {
+  &__top {
+    padding-top: 30px;
+    @include flexbox();
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__search {
+    padding-right: 10px;
+  }
+
+  &__search-bar {
+    display: block;
+    width: 100%;
+    height: 32px;
+    border-radius: 2px;
+    border: 1px solid #c3c0c7;
+    background-color: #fff;
+    font-size: 14px;
+    color: #878190;
+    padding: 0.25rem 1rem 0.25rem 0.75rem;
+    min-width: 490px;
+
+    &:focus {
+      @include anim(0.3s, 0s);
+      border: 1px solid #925cf3;
+    }
+
+    &:hover {
+      @include anim(0.3s, 0s);
+      border: 1px solid #a5a1ac;
+    }
+  }
+
+  &__dropdown {
+    @include flexbox();
+    height: 32px;
+    padding: 0px 13px;
+    background-color: #fff;
+    align-items: center;
+    box-shadow: 0 1px 3px 0 rgb(26 24 29 / 12%), 0 1px 2px 0 rgb(26 24 29 / 24%);
+    font-size: 16px;
+    font-weight: 700;
+    color: #4e4a57;
+    min-width: 105px;
+
+    &:hover {
+      @include anim(0.3s, 0s);
+      color: #6133b4;
+      box-shadow: 0 3px 6px 0 rgb(26 24 29 / 16%), 0 3px 6px 0 rgb(26 24 29 / 24%);
+
+      .tasks__ico svg {
+        fill: #6133b4;
+      }
+    }
+
+    span {
+      display: block;
+      position: relative;
+      width: 100%;
+      padding: 0px 30px 0px 0px;
+
+      &:before,
+      &:after {
+        content: '';
+        width: 10px;
+        height: 1px;
+        background-color: #6133b4;
+        position: absolute;
+        top: 8px;
+      }
+
+      &:before {
+        -webkit-transform: rotate(-40deg);
+        -ms-transform: rotate(-40deg);
+        transform: rotate(-40deg);
+        right: 0px;
+      }
+
+      &:after {
+        -webkit-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
+        transform: rotate(40deg);
+        right: 7px;
+      }
+    }
+  }
+
+  &__ico {
+    padding-right: 7px;
+
+    svg {
+      fill: #4e4a57;
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__row {
+    @include flexbox();
+    margin: 0 -10px;
+    padding-top: 18px;
+    @media (max-width: 1430px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__column {
+    padding: 0 10px;
+    flex: 0 1 25%;
+    @include flexbox();
+    flex-direction: column;
+    @media (max-width: 1430px) {
+      flex: 0 1 33.333%;
+      padding-bottom: 20px;
+    }
+    @media (max-width: 1080px) {
+      flex: 0 1 50%;
+    }
+    @media (max-width: 767px) {
+      flex: 0 1 100%;
+    }
+  }
+
+  &__info {
+    @include flexbox();
+    margin-bottom: 7px;
+  }
+
+  &__name {
+    flex: 1 1 auto;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__list {
+    @include flexbox();
+  }
+
+  &__list-item {
+    margin-right: 10px;
+    cursor: pointer;
+    color: rgb(104, 98, 116);
+    font-weight: 700;
+    font-size: 13px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.list-item-active {
+  color: rgb(79, 42, 147);
+  border-bottom: 2px solid rgb(79, 42, 147);
+  padding-bottom: 6px;
+}
+
+.item-tasks {
+  padding: 8px 8px 20px;
+  border-radius: 4px;
+  background: rgb(237, 236, 238);
+  height: calc(100% - 35px);
+
+  &__add {
+    textarea {
+      border-radius: 2px;
+      background-color: rgba(26, 24, 29, 0.06);
+      width: 100%;
+      margin-bottom: 3px;
+      padding: 12px 16px;
+      border-color: transparent;
+      transition: background 0.15s ease-in 0s;
+      resize: none;
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 1.43;
+      color: rgb(78, 74, 87);
+      border: 1px solid rgb(195, 192, 199);
+      height: 46px;
+
+      &:focus {
+        background: #fff;
+        border: 1px solid rgb(189, 168, 255);
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+    text-align: center;
+    padding: 2px 0px 10px 0px;
+    @media (max-width: 998.98px) {
+      display: block;
+    }
+  }
+
+  &__task {
+    @include flexbox();
+    width: 100%;
+    margin-bottom: 2px;
+    -webkit-box-shadow: 0 2px 2px 0 rgb(26 24 29 / 16%), 0 1px 4px 0 rgb(26 24 29 / 12%);
+    box-shadow: 0 2px 2px 0 rgb(26 24 29 / 16%), 0 1px 4px 0 rgb(26 24 29 / 12%);
+    background: #fff;
+    border-radius: 2px;
+    position: relative;
+
+    &:hover {
+      .item-tasks__text-wrapper {
+        svg {
+          @include anim(0.2s, 0s);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__func {
+    padding-top: 1rem;
+    width: 40px;
+    @include flexbox();
+    justify-content: center;
+    flex-shrink: 0;
+    min-height: 60px;
+    cursor: pointer;
+  }
+
+  &__sucsess-task {
+    .item-tasks__left {
+      background: #24cc8f !important;
+    }
+  }
+
+  &__bad-task {
+    .item-tasks__left {
+      background: #edecee;
+    }
+
+    .item-tasks__right {
+      background: #ff944c !important;
+    }
+  }
+
+  &__left {
+    background: rgb(255, 190, 93);
+  }
+
+  &__plus {
+    background: rgba(121, 75, 0, 0.25);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  &__middle {
+    background: #fff;
+    flex-grow: 1;
+    padding: 11px 8px 23px 8px;
+  }
+
+  &__counter {
+    @include flexbox();
+    justify-content: flex-end;
+    align-items: center;
+
+    svg {
+      width: 11px;
+      height: 11px;
+      fill: #bdb5c5;
+    }
+  }
+
+  &__count {
+    padding-left: 5px;
+    color: #a5a1ac;
+  }
+
+  &__text {
+    font-size: 16px;
+  }
+
+  &__suptext {
+    font-size: 13px;
+    color: #686274;
+  }
+
+  &__days {
+    padding-top: 10px;
+    font-size: 12px;
+
+    svg {
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      fill: rgb(165, 161, 172);
+    }
+
+    span {
+      padding-right: 3px;
+    }
+  }
+
+  &__right {
+    background: #edecee;
+  }
+
+  &__minus {
+    background: transparent;
+    border: 1px solid #a5a1ac;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 10px;
+      height: 10px;
+      fill: #878190;
+    }
+  }
+
+  &__checkbox {
+    width: 30px;
+    height: 30px;
+    background: hsla(0, 0%, 100%, 0.5);
+    border-radius: 3px;
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+
+    span {
+      display: none;
+    }
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__left-active {
+    background: #878190 !important;
+    @include anim(0.2s, 0s);
+
+    .item-tasks__checkbox span {
+      display: block !important;
+    }
+  }
+
+  &__coin {
+    cursor: pointer;
+    background: rgba(255, 190, 93, 0.15);
+    padding-top: 1rem;
+    width: 40px;
+    @include flexbox();
+    justify-content: center;
+    flex-shrink: 0;
+    min-height: 60px;
+
+    svg {
+      width: 10px;
+      height: 10px;
+      fill: #878190;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  &__text-wrapper {
+    @include flexbox();
+    margin-bottom: 10px;
+
+    p {
+      flex: 1 1 auto;
+    }
+
+    svg {
+      opacity: 0;
+      cursor: pointer;
+      width: 14px;
+      height: 14px;
+      fill: rgb(104, 98, 116);
+
+      &:hover {
+        @include anim(0.2s, 0s);
+        fill: rgb(146, 92, 243);
+      }
+    }
+  }
+}
+
+.note-item-tasks {
+  text-align: center;
+  padding: 20px 0;
+  color: #a5a1ac;
+
+  &__icon {
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: #a5a1ac;
+    }
+  }
+
+  &__title {
+    padding: 6px 0px;
+  }
+
+  &__text {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+}
+
+.shop-tasks {
+  &__row {
+    @include flexbox();
+    margin: 0 -10px;
+    flex-wrap: wrap;
+    padding: 10px 10px 0 10px;
+  }
+
+  &__column {
+    flex: 0 1 25%;
+    margin-bottom: 10px;
+  }
+
+  &__item {
+    background: #fff;
+    min-height: 120px;
+    width: 94px;
+    @include flexbox();
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px 0 rgb(26 24 29 / 12%), 0 1px 2px 0 rgb(26 24 29 / 24%);
+  }
+
+  &__icon {
+    margin: 15px 20px;
+
+    img {
+      width: 58px;
+      height: 58px;
+    }
+  }
+
+  &__price {
+    @include flexbox();
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 190, 93, 0.15);
+    min-height: 25px;
+
+    svg {
+      margin-right: 4px;
+      width: 15px;
+      height: 15px;
+    }
+
+    color: #794b00;
+    font-weight: 700;
+    font-size: 13px;
+  }
+}
+
+.toastIcon {
+  padding: 0 5px;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: #6e42c1b4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include flexbox();
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 99;
+  pointer-events: none;
+  @include anim(0.3s, 0s);
+
+  &__content {
+    border-radius: 12px;
+    background-color: white;
+    @include anim(0.3s, 0s);
+    transform: scale(0.5);
+    min-width: 450px;
+    min-height: 150px;
+
+    &.active {
+      transform: scale(1);
+    }
+  }
+
+  &__label {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  &__top {
+    input {
+      width: 100%;
+    }
+  }
+
+  &__middle {
+    padding: 10px 0;
+
+    textarea {
+      background-color: #f2f2f2;
+      resize: none;
+      padding: 10px;
+      width: 100%;
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+
+    button:disabled {
+      opacity: 0.7;
+    }
+  }
+
+  &__header {
+    background: rgb(255, 190, 93);
+    padding: 20px;
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  &__top {
+    @include flexbox();
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 14px;
+    color: rgb(121, 75, 0);
+    font-weight: 700;
+    font-size: 20px;
+    flex: 1 1 auto;
+  }
+
+  &__buttons {
+    button {
+      color: rgb(121, 75, 0);
+
+      &:first-child {
+        background: none;
+        padding-right: 15px;
+      }
+    }
+  }
+
+  &__save {
+    border: none;
+    background: #fff;
+    padding: 0px 15px;
+    box-shadow: rgb(26 24 29 / 12%) 0px 1px 3px 0px, rgb(26 24 29 / 24%) 0px 1px 2px 0px;
+
+    &:hover {
+      background: #fff;
+      @include anim(0.2s, 0s);
+      color: rgb(97, 51, 180);
+    }
+  }
+
+  &__text,
+  &__notice {
+    label {
+      color: rgb(121, 75, 0);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea {
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      height: 32px;
+      padding-left: 10px;
+      color: rgb(121, 75, 0);
+    }
+
+    textarea {
+      height: 56px;
+      resize: none;
+      padding-top: 10px;
+    }
+
+    margin-bottom: 15px;
+  }
+
+  &__body {
+    padding: 20px;
+  }
+
+  &__icons {
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon-item {
+    padding-right: 30px;
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    .item-tasks__plus,
+    .item-tasks__minus {
+      width: 40px;
+      height: 40px;
+    }
+
+    &-active {
+      .item-tasks__plus,
+      .item-tasks__minus {
+        background: #ffbe5d;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 13px;
+    color: rgb(104, 98, 116);
+  }
+
+  &__title-select {
+    padding-top: 15px;
+  }
+
+  &__select {
+    margin-top: 10px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border: 1px solid transparent;
+    color: rgb(78, 74, 87);
+    cursor: pointer;
+    height: 32px;
+    text-align: left;
+    width: 100%;
+    box-shadow: rgb(26 24 29 / 12%) 0px 1px 3px 0px, rgb(26 24 29 / 24%) 0px 1px 2px 0px;
+    border-radius: 2px;
+    padding-left: 5px;
+
+    &:hover {
+      @include anim(0.3s, 0s);
+      border-color: rgb(146, 92, 243);
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    padding: 25px 0;
+    color: rgb(201, 43, 43);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__calendar {
+    margin-top: 10px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border: 1px solid transparent;
+    color: rgb(78, 74, 87);
+    cursor: pointer;
+    height: 32px;
+    text-align: left;
+    width: 100%;
+    box-shadow: rgb(26 24 29 / 12%) 0px 1px 3px 0px, rgb(26 24 29 / 24%) 0px 1px 2px 0px;
+    border-radius: 2px;
+    padding-left: 5px;
+    @include flexbox();
+    align-items: center;
+
+    &:hover {
+      @include anim(0.3s, 0s);
+      border-color: rgb(146, 92, 243);
+    }
+
+    & input {
+      cursor: pointer;
+      width: 100%;
+    }
+  }
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-change {
+  input {
+    border: 1px solid #ffbe5d;
+  }
+}
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================

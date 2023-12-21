@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Tabs from "../../../common/ui/Tabs";
+import Tabs from "../../../shared/pub/Tabs/Tabs";
 import {TaskFiltersType} from "../../../entities/task/model/config/task";
 
 interface ITaskFilters {

@@ -1,6 +1,6 @@
 import {createReducer} from "@reduxjs/toolkit";
 import {RewardActions} from "../actions";
-import {RewardCategoryEnum, rewardState} from "../config";
+import {RewardCategoryEnum, RewardModalsName, rewardState} from "../config";
 
 const initialState: rewardState = {
     rewards: [
@@ -12,7 +12,14 @@ const initialState: rewardState = {
             category: RewardCategoryEnum.SEASON,
         },
     ],
-    currentFilter: RewardCategoryEnum.ALL
+    currentFilter: RewardCategoryEnum.ALL,
+    modals: [
+        {
+            name: RewardModalsName.UPDATE_REWARD,
+            isOpen: false,
+            data: null
+        }
+    ]
 };
 
 
@@ -41,5 +48,21 @@ export const reward = createReducer(initialState, (builder) => builder
     .addCase(RewardActions.changeCurrentRewardFilter, (state, {payload: {newFilter}}) => ({
         ...state,
         currentFilter: newFilter
+    }))
+    .addCase(RewardActions.openRewardModal, (state, {payload: {modalName, data}}) => ({
+        ...state,
+        modals: state.modals.map((modal) => modal.name === modalName ? {
+            ...modal,
+            isOpen: !modal.isOpen,
+            data
+        } : modal)
+    }))
+    .addCase(RewardActions.closeRewardModal, (state, {payload: {modalName}}) => ({
+        ...state,
+        modals: state.modals.map((modal) => modal.name === modalName ? {
+            ...modal,
+            isOpen: !modal.isOpen,
+            data: null,
+        } : modal)
     }))
 );

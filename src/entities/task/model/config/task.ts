@@ -3,6 +3,8 @@ export type TaskFiltersType = {
     category: string,
 }[]
 
+export const diffList: string[] = ['Пустяк', 'Легко', 'Нормально', 'Сложно'];
+
 export type TaskType = {
     id: number;
     titleText: string;
@@ -18,4 +20,5 @@ export type TaskType = {
     remainDay?: number;
     isBadTask?: boolean;
     isSuccessTask?: boolean;
+    finishUntilDate?: Date | null,
 }

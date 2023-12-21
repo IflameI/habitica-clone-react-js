@@ -1,6 +1,6 @@
 import {createAction} from "@reduxjs/toolkit";
 import {actionWithPayloadType} from "shared/model/config/actionWithPayload";
-import {RewardType} from "../config";
+import {RewardModalsName, RewardType} from "../config";
 
 
 export const addReward = createAction('[TASK/REWARD] ADD_REWARD',
@@ -14,3 +14,9 @@ export const deleteReward = createAction('[TASK/REWARD] DELETE_REWARD',
 
 export const changeCurrentRewardFilter = createAction('[FILTERS/REWARD] CHANGE_CURRENT_FILTER',
     actionWithPayloadType<{ newFilter: string }>());
+
+export const openRewardModal = createAction('[MODAL/REWARD] OPEN_REWARD_MODAL',
+    actionWithPayloadType<{ modalName: RewardModalsName, data: RewardType }>());
+
+export const closeRewardModal = createAction('[MODAL/REWARD] CLOSE_REWARD_MODAL',
+    actionWithPayloadType<{ modalName: RewardModalsName }>());

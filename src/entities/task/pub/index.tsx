@@ -4,6 +4,8 @@ import {CounterIcon} from "../../../assets/icons/CounterIcon";
 import {TaskType} from "../model/config/task";
 import {CheckIcon} from "../../../assets/icons/CheckIcon";
 import {ThreeDots} from "../../../assets/icons/ThreeDots";
+import {CalendarIcon} from "../../../assets/icons/CalendarIcon";
+import {declinationOfNumber} from "../../../shared/utils";
 
 interface ITask extends Omit<TaskType, 'category' | 'diff' | 'id'> {
 	isOneTimeTask?: boolean;
@@ -19,6 +21,7 @@ export const Task: React.FC<ITask> = ({
 	                                      count,
 	                                      supText,
 	                                      isOneTimeTask,
+	                                      remainDay = 0,
 	                                      isCompletedTask,
 	                                      onSuccessButtonClick,
 	                                      onFailButtonClick,
@@ -56,6 +59,13 @@ export const Task: React.FC<ITask> = ({
 						)}
 					</div>
 					<p className='item-tasks__suptext'>{supText}</p>
+					{remainDay !== 0 && (
+						<p className='item-tasks__days'>
+							<CalendarIcon/>
+							<span>Осталось на выполнение {remainDay}</span>
+							{declinationOfNumber(remainDay, ['день', 'дня', 'дней'])}
+						</p>
+					)}
 					{Number(count) || count === 0 ? (
 						<div className='item-tasks__counter'>
 							<CounterIcon/>

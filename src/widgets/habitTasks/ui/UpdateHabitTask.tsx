@@ -7,14 +7,6 @@ import {Modal} from "../../../entities/modal";
 import {UpdateHabitTaskForm} from "features/habitTasks/updateHabitTask";
 import {DeleteHabitTaskButton} from "features/habitTasks/deleteHabitTask";
 
-export interface IFormHabitValues {
-	id: number,
-	taskTitle: string,
-	taskText: string,
-	isBadTask: boolean,
-	taskDiff: string,
-	isHabitTaskSuccess: boolean
-}
 
 export const UpdateHabitTask: React.FC = () => {
 	const dispatch = useDispatch()

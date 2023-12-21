@@ -14,11 +14,6 @@ export const selectCurrentHabitTaskFilter = createSelector(
     (state) => state.currentFilter,
 );
 
-export const selectModals = createSelector(
-    selectHabitTask,
-    (state) => state.modals,
-);
-
 export const selectHabitModalState = createSelector(
     selectHabitTask,
     (state) => state.modals[state.modals.findIndex((modal) => modal.name === HabitModalsName.UPDATE_HABIT_TASK)],

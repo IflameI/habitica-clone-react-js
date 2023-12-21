@@ -1,5 +1,6 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import classNames from 'classnames';
+import {useOutsideClick} from "../../hooks/useOutsideClick";
 
 interface IBurger {
 	navComponent: (open: boolean, burgerRef: any) => React.ReactNode
@@ -7,26 +8,16 @@ interface IBurger {
 
 const Burger: React.FC<IBurger> = ({navComponent}) => {
 	const [open, setOpen] = useState(false);
-	const burgerRef: any = useRef();
+	const ref = useOutsideClick(() => setOpen(false));
 
 	const handleOpenClick = () => {
 		setOpen(!open)
 	}
 
-	const handleOutsideClick = (event: any) => {
-		const path = event.path || (event.composedPath && event.composedPath());
-		if (!path.includes(burgerRef.current)) {
-			setOpen(false);
-		}
-	};
-
-	useEffect(() => {
-		document.body.addEventListener('click', handleOutsideClick);
-	}, []);
 	return (
 		<>
 			<div
-				ref={burgerRef}
+				ref={ref}
 				onClick={handleOpenClick}
 				className={classNames('styledBurger', {
 					open: open,
@@ -35,7 +26,7 @@ const Burger: React.FC<IBurger> = ({navComponent}) => {
 				<div className='elementBurger'></div>
 				<div className='elementBurger'></div>
 			</div>
-			{navComponent(open, burgerRef)}
+			{navComponent(open, ref)}
 		</>
 	);
 };

@@ -1,13 +1,21 @@
 import classNames from "classnames";
-import {diffList} from "../../../../shared/components/Tasks/taskDifficulty";
 import React from "react";
 import {useFormik} from "formik";
 import {HabitTaskActions} from "../../../../widgets/habitTasks/model/actions";
-import {IFormHabitValues} from "../../../../widgets/habitTasks/ui/UpdateHabitTask";
 import {useDispatch, useSelector} from "react-redux";
 import {selectUpdateHabitModalData} from "../../../../widgets/habitTasks/model/selectors/habitTask.selectors";
 import {HabitModalsName, HabitTaskType} from "../../../../widgets/habitTasks/model/config";
 import {ModalHeader} from "../../../../entities/modal/pub/ModalHeader";
+import {diffList} from "../../../../entities/task/model/config/task";
+
+interface IFormHabitValues {
+	id: number,
+	taskTitle: string,
+	taskText: string,
+	isBadTask: boolean,
+	taskDiff: string,
+	isHabitTaskSuccess: boolean
+}
 
 export const UpdateHabitTaskForm = () => {
 	const dispatch = useDispatch()

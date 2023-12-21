@@ -4,7 +4,6 @@ import * as habitTaskActionCreators from '../../../widgets/habitTasks/model/acti
 import * as rewardActionCreators from '../../../widgets/rewards/model/actions/reward';
 import * as dailyTaskActionCreators from '../../../widgets/dailyTasks/model/actions/dailyTask';
 import * as todoTaskActionCreators from '../../../widgets/todoTasks/model/actions/todoTask';
-import * as userThingActionCreators from '../../../redux/actions/userThing';
 
 export default {
     ...userActionCreators,
@@ -12,5 +11,4 @@ export default {
     ...dailyTaskActionCreators,
     ...todoTaskActionCreators,
     ...rewardActionCreators,
-    ...userThingActionCreators,
 };
