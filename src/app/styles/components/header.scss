@@ -6,6 +6,7 @@
   left: 0;
   top: 0;
   background: #432877;
+
   &__row {
     @include flexbox();
     height: 56px;
@@ -13,11 +14,13 @@
     -ms-flex-align: center;
     align-items: center;
   }
+
   &__logo {
     svg {
       width: 100%;
       height: 25px;
     }
+
     position: relative;
     z-index: 3;
     font-weight: 700;
@@ -28,19 +31,24 @@
       display: none;
     }
   }
+
   &__menu {
     flex: 1 1 auto;
   }
+
   &__right {
     @include flexbox();
+
     svg {
       width: 25px;
       height: 25px;
     }
   }
+
   &__money {
     @include flexbox();
     align-items: center;
+
     span {
       display: block;
       padding-left: 10px;
@@ -49,8 +57,10 @@
       font-weight: 700;
     }
   }
+
   &__message {
     padding-left: 20px;
+
     svg {
       fill: #fff;
     }
@@ -59,7 +69,6 @@
 
 .menu {
   &__body {
-    display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     @media (max-width: 991.98px) {
@@ -82,7 +91,6 @@
   }
 
   &__list {
-    display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     @media (max-width: 991.98px) {
@@ -92,6 +100,7 @@
       -ms-flex-align: center;
       align-items: center;
     }
+
     & li {
       margin: 0px 0px 0px 20px;
       @media (max-width: 991.98px) {
@@ -138,10 +147,12 @@
   -ms-transform: scaleX(1);
   transform: scaleX(1);
 }
+
 //====================================================================================================
 .header__navTop {
   flex: 1 1 auto;
 }
+
 @media (max-width: 991.98px) {
   .header__navTop {
     flex-direction: column;
@@ -159,6 +170,7 @@
     }
     padding: 6rem 0 0px 8px;
     transition: transform 0.3s ease-in-out;
+
     & li {
       margin-bottom: 20px;
       font-size: 18px;
@@ -185,6 +197,7 @@
     justify-content: space-around;
     flex-flow: column nowrap;
   }
+
   .elementBurger {
     width: 2rem;
     height: 0.25rem;
@@ -192,33 +205,42 @@
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
+
     &:nth-child(1) {
       transform: rotate(0);
     }
+
     &:nth-child(2) {
       opacity: 1;
       transform: translateX(0);
     }
+
     &:nth-child(3) {
       transform: rotate(0);
     }
   }
 }
+
 .header__navTop.open {
   transform: translateX(0%);
 }
+
 .styledBurger.open {
   position: fixed;
+
   .elementBurger:nth-child(1) {
     transform: rotate(45deg);
   }
+
   .elementBurger:nth-child(2) {
     transform: translateX(100%);
     opacity: 0;
   }
+
   .elementBurger:nth-child(3) {
     transform: rotate(-45deg);
   }
+
   .elementBurger {
     background-color: #fff;
   }

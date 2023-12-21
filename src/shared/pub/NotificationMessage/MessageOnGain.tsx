@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {declinationOfNumber} from "../../utils/declinationOfNumber";
+import {declinationOfNumber} from "../../utils";
 
 interface IMessageOnGain {
 	thing: string[],

@@ -29,7 +29,7 @@ export const UpdateTodoTaskForm = () => {
 		isCompletedTask,
 		finishUntilDate,
 	} = modalData as ToDoTaskType
-	console.log(modalData)
+
 	const initialValues: ToDoTaskType = {
 		id,
 		titleText,
