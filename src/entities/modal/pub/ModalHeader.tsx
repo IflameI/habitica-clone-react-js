@@ -1,6 +1,6 @@
-import React from "react";
+import React, {PropsWithChildren} from "react";
 
-interface IModalHeader {
+interface IModalHeader extends PropsWithChildren {
 	handleClose: () => void;
 	handleSubmit: () => void,
 	headerText: string;
