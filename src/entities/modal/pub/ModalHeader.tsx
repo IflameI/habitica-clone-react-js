@@ -1,9 +1,10 @@
-import React, {PropsWithChildren} from "react";
+import React from "react";
 
-interface IModalHeader extends PropsWithChildren {
+interface IModalHeader {
 	handleClose: () => void;
 	handleSubmit: () => void,
 	headerText: string;
+	children?: React.ReactNode
 }
 
 export const ModalHeader: React.FC<IModalHeader> = ({children, headerText, handleSubmit, handleClose}) => {
