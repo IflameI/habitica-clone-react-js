@@ -6,7 +6,7 @@ habitica-clone-react-js - клон habitica(бесплатное приложе�
 <a href = 'https://vercel.com/iflameis-projects/habitica-clone-react-js/HHd4o2t7iCDCe5puByFswHnJXPeb' >View Demo</a>
 
 Архитектура:
-FSD: https://feature-sliced.design/ru/docs/get-started/overview
+FSD: https://feature-sliced.design/ru/docs/get-started/overview <br>
 Module Federation: https://it-dev-journal.ru/articles/mikrofrontend-i-module-federation
 
 Stack:
