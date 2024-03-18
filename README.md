@@ -3,7 +3,7 @@
 
 habitica-clone-react-js - клон habitica(бесплатное приложение для выработки привычек и повышения личной эффективности, которое превратит вашу жизнь в игру.). Реализован основной функционал
 
-<a href = 'https://vercel.com/iflameis-projects/habitica-clone-react-js/HHd4o2t7iCDCe5puByFswHnJXPeb' >View Demo</a>
+<a href = 'https://habitica-clone-react-a3zusy7f5-iflameis-projects.vercel.app' >View Demo</a>
 
 Архитектура: <br>
 FSD: https://feature-sliced.design/ru/docs/get-started/overview <br>
